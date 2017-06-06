@@ -1,0 +1,2 @@
+model_checkpoint_path: "signabs_RL_pong_RMSprop.ckpt"
+all_model_checkpoint_paths: "signabs_RL_pong_RMSprop.ckpt"
