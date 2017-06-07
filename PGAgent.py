@@ -43,7 +43,7 @@ class PGAgent:
         # state = state.reshape([1, state.shape[0]])
         aprob = self.model.predict(state, batch_size=1).flatten()
         self.probs.append(aprob)
-        prob = aprob / np.sum(aprob)
+        prob = aprob / np.sum(aprob)        
         action = np.random.choice(self.action_size, 1, p=prob)[0]
         return action, prob
 
@@ -61,7 +61,8 @@ class PGAgent:
         gradients = np.vstack(self.gradients)
         # rewards = np.vstack(self.rewards)
         # rewards = self.discount_rewards(rewards)
-        rewards = rewards / np.std(rewards - np.mean(rewards))
+        rewards = (rewards - np.mean(rewards)) / np.std(rewards ) 
+
         gradients *= rewards
         X = np.squeeze(np.vstack([self.states]))
         Y = self.probs + self.learning_rate * np.squeeze(np.vstack([gradients]))
