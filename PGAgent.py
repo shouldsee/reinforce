@@ -61,7 +61,7 @@ class PGAgent:
         gradients = np.vstack(self.gradients)
         # rewards = np.vstack(self.rewards)
         # rewards = self.discount_rewards(rewards)
-        rewards = (rewards - np.mean(rewards)) / np.std(rewards ) 
+        rewards = (rewards - np.mean(rewards,keepdims =1)) / np.std(rewards ) 
 
         gradients *= rewards
         X = np.squeeze(np.vstack([self.states]))
