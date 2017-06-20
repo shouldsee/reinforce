@@ -1,0 +1,5 @@
+Xeon_E5620_8x	63.6879
+Xeon_E5620_8x/GTX_650_Ti_Boost	39.0529  
+CPU/-MKL	2.595s	 3ms
+CPU/+MKL	2.59	3ms
+CPU/+MKL/GPU	0.435s 	2.75ms

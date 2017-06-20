@@ -32,8 +32,8 @@ LogName = 'Models/ac1.log';
 winwid = 10;
 movmean = lambda x,winwid:np.convolve(x,np.ones((winwid,))/winwid,'valid' );
 
-def visualise(ax, AgentName, winwid = 10):
+def visualise(ax, AgentName,colname = 'Score', winwid = 10):
     LogFile = 'Models/'+AgentName+'.log';
-    x = np.array(readcsv(LogFile,True)['Score']).astype('float');
+    x = np.array(readcsv(LogFile,True)[colname]).astype('float');
     movm_x = movmean(x,winwid);
     ax.plot(movm_x, label = AgentName);
